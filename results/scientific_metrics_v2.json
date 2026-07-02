@@ -1,0 +1,16 @@
+{
+  "experiment_name": "concurrency_and_temp_mitigations_v2",
+  "g1_prompt_tokens": 883,
+  "g1_eval_tokens": 980,
+  "g2_prompt_tokens": 2233,
+  "g2_eval_tokens": 1801,
+  "cso_prompt_tokens": 483,
+  "cso_eval_tokens": 336,
+  "total_prompt_tokens": 3599,
+  "total_completion_tokens": 3117,
+  "total_tokens_consumed": 6716,
+  "total_nodes_generated": 43,
+  "final_nodes_survived": 9,
+  "novelty_ratio": 0.2093,
+  "duplicate_ratio": 0.7907
+}
