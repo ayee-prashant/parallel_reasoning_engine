@@ -1,0 +1,34 @@
+# Tasks
+
+- `[x]` Update `config.py` with evolutionary parameters (generations, mutation_rate, max_concurrency)
+- `[x]` Update `engine.py` with the Adaptive Evolutionary Engine
+  - `[x]` Setup 10 specialized Workers with distinct prompts and scoring profiles
+  - `[x]` Implement category-to-worker weights mapping
+  - `[x]` Implement Phase 1: Generation G=1
+  - `[x]` Implement Phase 2: Competition (Worker-based custom scoring & pruning)
+  - `[x]` Implement Phase 3: Consolidation (Jaccard merging & provenance)
+  - `[x]` Implement Phase 4: Mutation (Contrarian/vulnerability/temporal changes)
+  - `[x]` Implement Phase 5: Next-Gen Expansion & repeat competition/consolidation
+  - `[x]` Implement Phase 6: Compression & Ancestral Reconnection
+- `[x]` Verify `sequential_engine.py` integration with max_concurrency
+- `[x]` Update `logger.py` to track generations and mutations
+- `[x]` Update `benchmark.py` to run the evolutionary pipeline
+- `[x]` Update `dashboard.py` and `dashboard.html` with evolutionary metrics and consensus visualizers
+- `[x]` Run the Benchmark & compile data (Full runner completed successfully)
+- `[x]` Generate reports (`architecture.md`, `benchmark_report.md`, `findings.md`)
+- `[x]` Refactor evolutionary engine weighting matrix to utilize style axis (`balanced`, `discovery`, `practical`, `contrarian`, `creative`)
+- `[x]` Archive evolutionary engine and config files (`engine_evolutionary.py` and `config_evolutionary.py`)
+- `[x]` Implement Phase 1 lightweight worker colony (`config.json`, `workers.py`, `engine.py`)
+- `[x]` Verify Phase 1 worker colony output and resolve Windows console encoding & parser timeout errors
+- `[x]` Implement Phase 2 Persona Alignment Competition & Global Thresholding in `engine.py`
+- `[x]` Implement Phase 3 Jaccard Similarity Consolidation in `consolidation.py`
+- `[x]` Verify Jaccard merging and consensus scoring under the new driver loop
+- `[x]` Implement Phase 4 Cross-Persona Mutation in `workers.py` and `engine.py`
+- `[x]` Implement Phase 5 G2 Expansion & final unified consolidation
+- `[x]` Verify G2 mutation lineage tracking and fix consolidator ancestry resets (Defect 3)
+- `[x]` Implement Phase 6 Causal DAG HTML visualizer in `visualizer.py`
+- `[x]` Verify vis.js interactive graph rendering and fix CSS viewport height loops
+- `[x]` Verify changes and complete `walkthrough.md`
+- `[x]` Implement engine_v2.py with asyncio.Semaphore(2) throttling and G1/G2 temperature scaling
+- `[x]` Verify local CPU latency metrics and compile visualizer/synthesizer V2 assets
+- `[x]` Push engine_v2.py updates to GitHub repository
