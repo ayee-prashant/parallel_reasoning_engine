@@ -1,0 +1,6 @@
+{
+  "benchmark_model": "qwen3:8b",
+  "prompt_tokens": 145,
+  "completion_tokens": 1500,
+  "total_tokens_consumed": 1645
+}
