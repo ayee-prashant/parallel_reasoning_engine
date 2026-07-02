@@ -89,3 +89,59 @@ To transition the prototype from evolving **text** to evolving **strategic decis
 1. **`node_type`**: Restrict to `decision`, `consequence`, `evidence`, or `unknown`.
 2. **`evidence_links`**: Array of verified document references or web-grounded URLs.
 3. **`dissonance_score`**: Measuring contradiction against known constraints (e.g. if capital requirement exceeds budget).
+
+---
+
+## 🛠️ Implementation Blueprints
+
+### 1. Token Budget Equalizer Loop (`benchmark_suite.py`)
+To monitor computational parity during trials, use this accounting class to parse Ollama response fields:
+
+```python
+class TokenAccountant:
+    def __init__(self):
+        self.total_prompt_tokens = 0
+        self.total_completion_tokens = 0
+
+    def log_metrics(self, response_json: dict):
+        self.total_prompt_tokens += response_json.get("prompt_eval_count", 0)
+        self.total_completion_tokens += response_json.get("eval_count", 0)
+
+    @property
+    def total_tokens(self) -> int:
+        return self.total_prompt_tokens + self.total_completion_tokens
+```
+
+### 2. Causal Node Typing Schema
+Enforce structural identity checking on memory nodes:
+
+```python
+from typing import List, Literal, TypedDict
+
+class CausalNode(TypedDict):
+    node_id: str
+    node_type: Literal["decision", "consequence", "evidence", "unknown"]
+    label: str
+    rationale: str
+    evidence_links: List[str]  # Maps to verified document hashes or URLs
+    dissonance_score: float    # Flips to high if contradicting constraints
+    provenance: List[str]
+    consensus_score: float
+```
+
+### 3. Natural Language Inference Entailment Check (`entailment.py`)
+Replace lexical overlap with NLI logics utilizing lightweight ONNX models on CPU:
+
+```python
+def check_epistemic_entailment(node_a: str, node_b: str) -> str:
+    """
+    Evaluates logical relationship between Node A and Node B.
+    Returns: 'entailment' (merge), 'contradiction' (flag), or 'neutral' (separate).
+    """
+    # Standard NLI logic:
+    # Premise: "Quitting my corporate job introduces direct asset drain."
+    # Hypothesis: "I will face severe financial liabilities immediately."
+    # Output: Entailment (Merge nodes and preserve parent_id)
+    pass
+```
+
